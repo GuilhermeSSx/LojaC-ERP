@@ -1,0 +1,512 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{094C9635-A506-4F05-B2DC-A148B311C159}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Loja</RootNamespace>
+    <AssemblyName>Loja</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>elegancia_modas_icone.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FontAwesome.Sharp, Version=5.14.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.5.14.1\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.WinForms, Version=0.9.7.1, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.WinForms.0.9.7.1\lib\net45\LiveCharts.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QRCoder, Version=1.3.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.3.9\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.4.7.0\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AcessoBancoDados\AcessoBancoDadosSqlServer.cs" />
+    <Compile Include="DAO\Caixa_DAO.cs" />
+    <Compile Include="DAO\Cliente_DAO.cs" />
+    <Compile Include="DAO\Fluxo_Caixa_DAO.cs" />
+    <Compile Include="DAO\Funcionario_DAO.cs" />
+    <Compile Include="DAO\Movimento_Estoque_DAO.cs" />
+    <Compile Include="DAO\Pedido_DAO.cs" />
+    <Compile Include="DAO\Pedido_Finalizar_DAO.cs" />
+    <Compile Include="DAO\Pedido_Parcela_Finalizar_DAO.cs" />
+    <Compile Include="DAO\Pedido_Produtos_DAO.cs" />
+    <Compile Include="DAO\Produto_DAO.cs" />
+    <Compile Include="DTO\Caixa_Colecao.cs" />
+    <Compile Include="DTO\Caixa_DTO.cs" />
+    <Compile Include="DTO\Cliente_Colecao.cs" />
+    <Compile Include="DTO\Cliente_DTO.cs" />
+    <Compile Include="DTO\Fluxo_Caixa_Colecao.cs" />
+    <Compile Include="DTO\Fluxo_Caixa_DTO.cs" />
+    <Compile Include="DTO\Funcionario_Colecao.cs" />
+    <Compile Include="DTO\Funcionario_DTO.cs" />
+    <Compile Include="DTO\Movimento_Estoque_Colecao.cs" />
+    <Compile Include="DTO\Movimento_Estoque_DTO.cs" />
+    <Compile Include="DTO\Pedido_Parcela_Finalizar_DTO.cs" />
+    <Compile Include="DTO\Pedido_Colecao.cs" />
+    <Compile Include="DTO\Pedido_DTO.cs" />
+    <Compile Include="DTO\Pedido_Finalizar_Colecao.cs" />
+    <Compile Include="DTO\Pedido_Finalizar_DTO.cs" />
+    <Compile Include="DTO\Pedido_Parcela_Finalizar_Colecao.cs" />
+    <Compile Include="DTO\Pedido_Produtos_Colecao.cs" />
+    <Compile Include="DTO\Pedido_Produtos_DTO.cs" />
+    <Compile Include="DTO\Produto_Colecao.cs" />
+    <Compile Include="DTO\Produto_DTO.cs" />
+    <Compile Include="GUI\CAIXA\BuscarProdutoPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\CAIXA\BuscarProdutoPedido.Designer.cs">
+      <DependentUpon>BuscarProdutoPedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\CAIXA\FinalizarVendaParcelada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\CAIXA\FinalizarVendaParcelada.Designer.cs">
+      <DependentUpon>FinalizarVendaParcelada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ESTOQUE_PRODUTOS\MarcaProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ESTOQUE_PRODUTOS\MarcaProduto.Designer.cs">
+      <DependentUpon>MarcaProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ESTOQUE_PRODUTOS\TipoProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ESTOQUE_PRODUTOS\TipoProduto.Designer.cs">
+      <DependentUpon>TipoProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FICHA_CLIENTES\AlterarDataVencimentoParcela.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FICHA_CLIENTES\AlterarDataVencimentoParcela.Designer.cs">
+      <DependentUpon>AlterarDataVencimentoParcela.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FICHA_CLIENTES\QuitarParcela.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FICHA_CLIENTES\QuitarParcela.Designer.cs">
+      <DependentUpon>QuitarParcela.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\PAGINA_INICIAL\ControleCaixa\ReforcoCaixa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\PAGINA_INICIAL\ControleCaixa\ReforcoCaixa.Designer.cs">
+      <DependentUpon>ReforcoCaixa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\PAGINA_INICIAL\ControleCaixa\SangriaCaixa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\PAGINA_INICIAL\ControleCaixa\SangriaCaixa.Designer.cs">
+      <DependentUpon>SangriaCaixa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\CLIENTES\Clientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\CLIENTES\Clientes.Designer.cs">
+      <DependentUpon>Clientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\CLIENTES\FrmAlterarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\CLIENTES\FrmAlterarCliente.Designer.cs">
+      <DependentUpon>FrmAlterarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ESTOQUE_PRODUTOS\AumentarDiminuirEstoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ESTOQUE_PRODUTOS\AumentarDiminuirEstoque.Designer.cs">
+      <DependentUpon>AumentarDiminuirEstoque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ESTOQUE_PRODUTOS\BuscarDgvEstoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ESTOQUE_PRODUTOS\BuscarDgvEstoque.Designer.cs">
+      <DependentUpon>BuscarDgvEstoque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ESTOQUE_PRODUTOS\FrmAlterarProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ESTOQUE_PRODUTOS\FrmAlterarProduto.Designer.cs">
+      <DependentUpon>FrmAlterarProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\CLIENTES\CadastroClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\CLIENTES\CadastroClientes.Designer.cs">
+      <DependentUpon>CadastroClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\CAIXA\Caixa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\CAIXA\Caixa.Designer.cs">
+      <DependentUpon>Caixa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ESTOQUE_PRODUTOS\Estoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ESTOQUE_PRODUTOS\Estoque.Designer.cs">
+      <DependentUpon>Estoque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FICHA_CLIENTES\FichasClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FICHA_CLIENTES\FichasClientes.Designer.cs">
+      <DependentUpon>FichasClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FICHA_CLIENTES\GeradorCarnes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FICHA_CLIENTES\GeradorCarnes.Designer.cs">
+      <DependentUpon>GeradorCarnes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FICHA_CLIENTES\PagamentoParcial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FICHA_CLIENTES\PagamentoParcial.Designer.cs">
+      <DependentUpon>PagamentoParcial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FICHA_CLIENTES\ValorDevolucaoCaixa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FICHA_CLIENTES\ValorDevolucaoCaixa.Designer.cs">
+      <DependentUpon>ValorDevolucaoCaixa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\PAGINA_INICIAL\ConfigUsuario\alterarFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\PAGINA_INICIAL\ConfigUsuario\alterarFuncionario.Designer.cs">
+      <DependentUpon>alterarFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\PAGINA_INICIAL\ConfigUsuario\criarFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\PAGINA_INICIAL\ConfigUsuario\criarFuncionario.Designer.cs">
+      <DependentUpon>criarFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\PAGINA_INICIAL\ConfigUsuario\Configs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\PAGINA_INICIAL\ConfigUsuario\Configs.Designer.cs">
+      <DependentUpon>Configs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\PAGINA_INICIAL\ContasReceber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\PAGINA_INICIAL\ContasReceber.Designer.cs">
+      <DependentUpon>ContasReceber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\PAGINA_INICIAL\ContasVencidas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\PAGINA_INICIAL\ContasVencidas.Designer.cs">
+      <DependentUpon>ContasVencidas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\PAGINA_INICIAL\ControleCaixa\ControleCaixa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\PAGINA_INICIAL\ControleCaixa\ControleCaixa.Designer.cs">
+      <DependentUpon>ControleCaixa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\PAGINA_INICIAL\FluxoCaixa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\PAGINA_INICIAL\FluxoCaixa.Designer.cs">
+      <DependentUpon>FluxoCaixa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\PAGINA_INICIAL\HistoricoVendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\PAGINA_INICIAL\HistoricoVendas.Designer.cs">
+      <DependentUpon>HistoricoVendas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\PAGINA_INICIAL\Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\PAGINA_INICIAL\Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\PAGINA_INICIAL\MovimentoEstoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\PAGINA_INICIAL\MovimentoEstoque.Designer.cs">
+      <DependentUpon>MovimentoEstoque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\PAGINA_INICIAL\PaginaInicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\PAGINA_INICIAL\PaginaInicial.Designer.cs">
+      <DependentUpon>PaginaInicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\PAGINA_INICIAL\RelatorioVendasCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\PAGINA_INICIAL\RelatorioVendasCompras.Designer.cs">
+      <DependentUpon>RelatorioVendasCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\TelaLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\TelaLogin.Designer.cs">
+      <DependentUpon>TelaLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\SISTEMA\Sistema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\SISTEMA\Sistema.Designer.cs">
+      <DependentUpon>Sistema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\CLIENTES\ListaCompletaClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\CLIENTES\ListaCompletaClientes.Designer.cs">
+      <DependentUpon>ListaCompletaClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="WinAPI.cs" />
+    <EmbeddedResource Include="GUI\CAIXA\BuscarProdutoPedido.resx">
+      <DependentUpon>BuscarProdutoPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\CAIXA\FinalizarVendaParcelada.resx">
+      <DependentUpon>FinalizarVendaParcelada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ESTOQUE_PRODUTOS\MarcaProduto.resx">
+      <DependentUpon>MarcaProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ESTOQUE_PRODUTOS\TipoProduto.resx">
+      <DependentUpon>TipoProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FICHA_CLIENTES\AlterarDataVencimentoParcela.resx">
+      <DependentUpon>AlterarDataVencimentoParcela.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FICHA_CLIENTES\QuitarParcela.resx">
+      <DependentUpon>QuitarParcela.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\PAGINA_INICIAL\ControleCaixa\ReforcoCaixa.resx">
+      <DependentUpon>ReforcoCaixa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\PAGINA_INICIAL\ControleCaixa\SangriaCaixa.resx">
+      <DependentUpon>SangriaCaixa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\CLIENTES\Clientes.resx">
+      <DependentUpon>Clientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\CLIENTES\FrmAlterarCliente.resx">
+      <DependentUpon>FrmAlterarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ESTOQUE_PRODUTOS\AumentarDiminuirEstoque.resx">
+      <DependentUpon>AumentarDiminuirEstoque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ESTOQUE_PRODUTOS\BuscarDgvEstoque.resx">
+      <DependentUpon>BuscarDgvEstoque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ESTOQUE_PRODUTOS\FrmAlterarProduto.resx">
+      <DependentUpon>FrmAlterarProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\CLIENTES\CadastroClientes.resx">
+      <DependentUpon>CadastroClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\CAIXA\Caixa.resx">
+      <DependentUpon>Caixa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ESTOQUE_PRODUTOS\Estoque.resx">
+      <DependentUpon>Estoque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FICHA_CLIENTES\FichasClientes.resx">
+      <DependentUpon>FichasClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\CLIENTES\ListaCompletaClientes.resx">
+      <DependentUpon>ListaCompletaClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FICHA_CLIENTES\GeradorCarnes.resx">
+      <DependentUpon>GeradorCarnes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FICHA_CLIENTES\PagamentoParcial.resx">
+      <DependentUpon>PagamentoParcial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FICHA_CLIENTES\ValorDevolucaoCaixa.resx">
+      <DependentUpon>ValorDevolucaoCaixa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\PAGINA_INICIAL\ConfigUsuario\alterarFuncionario.resx">
+      <DependentUpon>alterarFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\PAGINA_INICIAL\ConfigUsuario\criarFuncionario.resx">
+      <DependentUpon>criarFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\PAGINA_INICIAL\ConfigUsuario\Configs.resx">
+      <DependentUpon>Configs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\PAGINA_INICIAL\ContasReceber.resx">
+      <DependentUpon>ContasReceber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\PAGINA_INICIAL\ContasVencidas.resx">
+      <DependentUpon>ContasVencidas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\PAGINA_INICIAL\ControleCaixa\ControleCaixa.resx">
+      <DependentUpon>ControleCaixa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\PAGINA_INICIAL\FluxoCaixa.resx">
+      <DependentUpon>FluxoCaixa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\PAGINA_INICIAL\HistoricoVendas.resx">
+      <DependentUpon>HistoricoVendas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\PAGINA_INICIAL\Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\PAGINA_INICIAL\MovimentoEstoque.resx">
+      <DependentUpon>MovimentoEstoque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\PAGINA_INICIAL\PaginaInicial.resx">
+      <DependentUpon>PaginaInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\PAGINA_INICIAL\RelatorioVendasCompras.resx">
+      <DependentUpon>RelatorioVendasCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\TelaLogin.resx">
+      <DependentUpon>TelaLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\SISTEMA\Sistema.resx">
+      <DependentUpon>Sistema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ELEGANCIA-MODAS-PERFIL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 e x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pendente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pago.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fundo_transparente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_em.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\linha_animada.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="elegancia_modas_icone.ico" />
+    <None Include="Resources\login_ft.png" />
+    <None Include="Resources\loja_icone100x100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

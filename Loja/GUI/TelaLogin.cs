@@ -11,6 +11,9 @@ namespace Loja
     public partial class TelaLogin : Form
     {
 
+        //atualização!!!
+
+        /// </summary>
         //criar a conexão
         SqlConnection conexao = new SqlConnection(Settings.Default.stringConexao);
 
